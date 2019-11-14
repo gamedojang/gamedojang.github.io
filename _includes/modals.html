@@ -39,7 +39,10 @@
                                 {% endif %}
                             </ul>
 
-                            <button type="button" class="btn btn-default" onclick="location.href='https://github.com/ID2'"><i class="fa fa-bookmark"></i> Github 저장소</button>
+                            {% if post.github %}
+                                <button type="button" class="btn btn-default" onclick="location.href='{{ post.github }}'"><i class="fa fa-bookmark"></i> Github 저장소</button>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
