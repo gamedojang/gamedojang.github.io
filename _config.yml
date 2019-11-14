@@ -1,11 +1,11 @@
 # Site settings
-title: Freelancer
-email: your-email@domain.com
-url: https://example.github.io
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-keywords: "your keywords, separated by commas"
-skills: "Web Developer - Graphic Artist - User Experience Designer"
-meta_author: LastName FirstName
+title: 게임 개발자 고준일
+email: goya@me.com
+url: https://gamedojang.github.io
+description: "유니티 기반의 모바일 게임 개발자"
+keywords: "unity, developer, c#, game, designer"
+skills: "C#, Unity, Server 개발자"
+meta_author: 고준일
 
 # Google webmaster tools
 google_verify:
@@ -32,8 +32,8 @@ color:
 
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
+  copyright: Junil Ko
+  location: Skills
   social: Around the Web
   credits: Credits
 
@@ -52,11 +52,11 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: C#, Unity
+  - line: 
 
 # Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '유니티로 게임을 개발하는 개발자'
 
 # Build settings
 markdown: kramdown
