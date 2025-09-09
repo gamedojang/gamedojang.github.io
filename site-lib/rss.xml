@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[GOYA]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>GOYA</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Tue, 09 Sep 2025 07:37:36 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Tue, 09 Sep 2025 07:37:35 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[오목 게임 만들기 교안]]></title><description><![CDATA[<a href=".?query=tag:강의" class="tag is-unresolved" target="_self" rel="noopener nofollow" data-href="#강의">#강의</a> <a href=".?query=tag:교안" class="tag is-unresolved" target="_self" rel="noopener nofollow" data-href="#교안">#교안</a> <a href=".?query=tag:유니티" class="tag is-unresolved" target="_self" rel="noopener nofollow" data-href="#유니티">#유니티</a> 게임은 멀티플레이와 AI 플레이가 합쳐진 형태의 오목 게임입니다.
+기본적으로 멀티플레이가 구현되면 좋겠지만, 멀티플레이 구현이 어렵다고 판단되면 AI 기반의 싱글 플레이로 구현합니다.급수는 18급에서 1급까지 총 18단계로 나누어 집니다.
+플레이어는 현재 급수에서 연속으로 3번을 이기면 급수가 올라가고, 연승 중 패를 하면 승급 포인트가 1회 차감됩니다.
+즉, 처음에는 승급 포인트가 0이었다가 1번 승리하면 승급 포인트가 1, 2번 연속 승리하면 승급 포인트가 2 그리고 또 한 번 승리하면 승급 포인트가 3이되어 다음 급수로 승급합니다.
+1급이 되었을 땐 더 이상 승급이 되지 않습니다.
+연승 횟수는 -1, -2로도 떨어질 수 있는데, -3까지 떨어지면 한 단계 낮은 급수로 강등됩니다.승급 포인트는 급수에 따라 달라집니다.
+10급 ~ 18급 : 3점
+5급 ~ 9급: 5점
+1급 ~ 4급: 10점
+게임을 시작하면 랜덤 매칭으로 상대방과 매칭되는데 이 때 상대방과는 비슷한 급수를 가져야 합니다.
+매칭이 될 수 있는 급수는 플레이어의 급수 기준으로 -1에서 +1까지 매칭이 가능합니다.
+매칭 과정 동안은 안내 팝업이 표시됩니다.
+매칭될 유저가 없을 때는 AI와 매칭이 됩니다.
+AI와 매칭될 땐 AI의 난이도가 급수에 맞게 비슷한 수준으로 매칭됩니다.회원가입, 로그인이 구현되어야 합니다.
+유저의 ID는 이메일로 등록합니다.
+유저의 닉네임을 입력할 수 있어야 합니다.멀티플레이를 구현하지 않을 때도 회원가입 및 로그인 기능은 구현 되어야 하며 정보는 PlayerPrefs를 이용해 저장합니다.AI 플레이는 난이도를 구분하여 쉬운 AI에서 부터 어려운 AI까지 나누어 집니다.
+그래서 낮은 급수를 가진 플레이어와 매칭되는 AI는 쉬운 난이도의 AI이고 높은 급수를 가진 플레이어와는 어려운 난이도의 AI와 매칭합니다.게임은 일반 렌즈룰을 통해 진행됩니다. 렌즈룰은 흑이 유리한 입장을 보완하기 위해 3x3, 혹은 4x4가 불가능하게 하는 것입니다.
+게임은 한 턴에 30초의 시간이 주어집니다. 30초를 초과하면 패하게 됩니다.
+기물을 배치하기 위해서는 터치 후 “착수” 버튼을 클릭해야 합니다.
+렌즈룰에 의해 착수할 수 없는 곳은 “x” 마크가 표시 되어야 합니다.
+게임 중에는 누구의 턴인지를 UI를 통해 표시합니다.<br><img alt="image 95.png" src="attachments/image-95.png" target="_self">랭킹은 급수를 기반으로 랭킹을 표시합니다.
+동일한 급수끼리는 승률을 바탕으로 랭킹을 표시합니다.자신이 플레이한 기록을 다시 돌려볼 수 있는 기능을 제공합니다.
+한 턴 씩 게임을 재생할 수 있습니다.오목 게임에서는 코인이라는 재화가 사용됩니다.
+게임을 플레이하기 위해서는 100 코인이 필요합니다.
+상대방과 플레이 후 상대방이 재대국을 신청하면 신청한 유저는 코인이 차감되지만 자신의 코인은 차감되지 않습니다.
+코인을 충전하기 위해서는 상점에서 코인을 구매해야 합니다.상점에는 코인을 구매할 수 있는 항목이 존재합니다.
+이 중 광고 시청 후 500 코인을 획득할 수 있는 항목이 존재합니다.멀티플레이와 싱글플레이 모두 최초 게임 진입 시 회원가입 화면을 통해 유저 정보를 입력해야 합니다.
+이 때 입력하는 정보는 다음과 같습니다.
+아이디
+: 아이디는 이메일 주소를 사용하고, 중복된 사용자 생성은 막습니다. 비밀번호
+: 비밀번호는 암호화 되어 저장되어야 합니다. 프로필 이미지
+: 프로필 이미지는 제공되는 이미지 중 하나를 선택하는 방식으로 등록합니다. <br><a data-tooltip-position="top" aria-label="https://www.figma.com/design/B9QhlDVHxwlxvFqKQlbPcg/%EC%98%A4%EB%AA%A9-%EA%B2%8C%EC%9E%84-UI-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0-1&amp;t=E77kBwsnlv7IcoiV-1" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.figma.com/design/B9QhlDVHxwlxvFqKQlbPcg/%EC%98%A4%EB%AA%A9-%EA%B2%8C%EC%9E%84-UI-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0-1&amp;t=E77kBwsnlv7IcoiV-1" target="_self">Figma</a>
+비밀번호: likelion1234게임 설계 과정에서는 어떤 기능을 어떻게 만들 것인지 팀원들과 소통합니다.
+이 과정을 통해 목표하는 결과물에 대해 팀에서 결정합니다.
+프로젝트 계획을 문서화 합니다. 프로젝트 계획에는 게임 설계 및 각 팀원의 담당 파트에 대해 작성합니다.
+디자인이나 사운드 등 개발 외 작업에 대해서도 작업을 계획합니다.
+전체 작업에 대해 Jira, Notion, Trello 등의 프로젝트 관리 툴로 일감을 작성하고 팀원들에게 할당합니다.<br>
+프로젝트 관리 툴에 <a data-tooltip-position="top" aria-label="mailto:moca.edu001@gmail.com" rel="noopener nofollow" class="external-link is-unresolved" href="mailto:moca.edu001@gmail.com" target="_self">moca.edu001@gmail.com</a> 을 초대합니다.<br>Github에 Private 저장소를 만들고 <a data-tooltip-position="top" aria-label="mailto:moca.edu001@gmail.com" rel="noopener nofollow" class="external-link is-unresolved" href="mailto:moca.edu001@gmail.com" target="_self">moca.edu001@gmail.com</a> 을 초대합니다.
+산출물 프로젝트 설계 및 계획 문서 일감 계획이 완료된 프로젝트 관리 도구 초대
+Github 저장소 초대 게임을 개발하며 프로젝트 관리 도구에 지속적으로 소스를 commit 합니다.
+기능별로 Branch를 만들어서 작업을 진행하고 Main에 Merge 합니다. (Branch의 commit이 남아있게 merge 합니다. Squash and Merge, Rebase And Merge 사용 안 함)
+산출물 중간보고 게임 플레이 영상 완성된 게임을 테스트 후 이상이 없으면 빌드를 합니다.
+모든 프로젝트는 Windows 기반으로 빌드합니다.
+산출물 최종 실행파일
+최종 플레이 영상
+최종 소스 파일 소스 파일의 경우 아래 이미지와 같이 Github에서 Download ZIP으로 내려받은 파일을 제출해주세요.<br><img alt="image 96.png" src="attachments/image-96.png" target="_self">제출 파일명 및 제출 링크는 다음과 같습니다.
+제출 파일명: [오목] 최종 결과물 - 00조.zip (띄어쓰기 주의)
+제출 링크: 그리고 멋사 홈페이지에 본인 계정으로 제출도 꼭 해주세요.진행 중 막히는 부분이나 질문이 있을 경우 오목 게임 “상점 - 질의응답”에 글을 작성합니다.
+이 때 해당 팀 채널명과 함께 도움 요청 글을 작성합니다.
+“오모목팀, 도와 주세요~”
+도움 요청 글이 올라오면 현재 대기 중인 멘토님께서 해당 글에 ✅ 체크마크를 표시하고 팀 채널로 접속합니다.
+만일 멘토님이 문제를 해결하기 어려운 상황이면 다른 멘토님을 불러주시게 됩니다.]]></description><link>오목-게임-만들기-교안.html</link><guid isPermaLink="false">01 Projects/유니티개발자키우기/유니티개발자키우기 교안/오목 게임 만들기 교안.md</guid><pubDate>Tue, 26 Aug 2025 07:05:58 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
